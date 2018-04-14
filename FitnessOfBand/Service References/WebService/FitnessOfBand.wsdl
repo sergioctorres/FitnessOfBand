@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://car-sales-co.umbler.net/FitnessOfBand.asmx" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://car-sales-co.umbler.net/FitnessOfBand.asmx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://car-sales-co.umbler.net/FitnessOfBand.asmx">
+      <s:element name="InsertWearable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="identification" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertWearableResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetWearable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identification" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWearableResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Wearable_Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InitialDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="FinishedDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="InitialHeartRate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FinalHeartRate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="InitialDistance" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="FinalDistance" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="InitialSteps" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="FinalSteps" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="InitialCalories" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="FinalCalories" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertInformationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastInformations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastInformationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastInformationsResult" type="tns:ArrayOfInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Information" nillable="true" type="tns:Information" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Information">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Wearable_Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitialDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinishedDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitialHeartRate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalHeartRate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitialDistance" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalDistance" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitialSteps" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalSteps" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="InitialCalories" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalCalories" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertRealTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Wearable_Id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CapturedDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="HeartRate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Speed" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Pace" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalDistance" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalSteps" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Calories" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRealTimeResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertWearableSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertWearable" />
+  </wsdl:message>
+  <wsdl:message name="InsertWearableSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertWearableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWearableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWearable" />
+  </wsdl:message>
+  <wsdl:message name="GetWearableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWearableResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertInformation" />
+  </wsdl:message>
+  <wsdl:message name="InsertInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastInformationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastInformations" />
+  </wsdl:message>
+  <wsdl:message name="GetLastInformationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastInformationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertRealTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRealTime" />
+  </wsdl:message>
+  <wsdl:message name="InsertRealTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRealTimeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FitnessOfBandSoap">
+    <wsdl:operation name="InsertWearable">
+      <wsdl:input message="tns:InsertWearableSoapIn" />
+      <wsdl:output message="tns:InsertWearableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWearable">
+      <wsdl:input message="tns:GetWearableSoapIn" />
+      <wsdl:output message="tns:GetWearableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertInformation">
+      <wsdl:input message="tns:InsertInformationSoapIn" />
+      <wsdl:output message="tns:InsertInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInformation">
+      <wsdl:input message="tns:GetInformationSoapIn" />
+      <wsdl:output message="tns:GetInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastInformations">
+      <wsdl:input message="tns:GetLastInformationsSoapIn" />
+      <wsdl:output message="tns:GetLastInformationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRealTime">
+      <wsdl:input message="tns:InsertRealTimeSoapIn" />
+      <wsdl:output message="tns:InsertRealTimeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FitnessOfBandSoap" type="tns:FitnessOfBandSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertWearable">
+      <soap:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/InsertWearable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWearable">
+      <soap:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/GetWearable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertInformation">
+      <soap:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/InsertInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInformation">
+      <soap:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/GetInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastInformations">
+      <soap:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/GetLastInformations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRealTime">
+      <soap:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/InsertRealTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FitnessOfBandSoap12" type="tns:FitnessOfBandSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertWearable">
+      <soap12:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/InsertWearable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWearable">
+      <soap12:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/GetWearable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertInformation">
+      <soap12:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/InsertInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInformation">
+      <soap12:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/GetInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastInformations">
+      <soap12:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/GetLastInformations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRealTime">
+      <soap12:operation soapAction="http://car-sales-co.umbler.net/FitnessOfBand.asmx/InsertRealTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FitnessOfBand">
+    <wsdl:port name="FitnessOfBandSoap" binding="tns:FitnessOfBandSoap">
+      <soap:address location="http://localhost:8000/FitnessOfBand.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FitnessOfBandSoap12" binding="tns:FitnessOfBandSoap12">
+      <soap12:address location="http://localhost:8000/FitnessOfBand.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
